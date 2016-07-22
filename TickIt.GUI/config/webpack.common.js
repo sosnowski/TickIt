@@ -8,7 +8,8 @@ module.exports = {
         'polyfills': './src/polyfills.ts',
         'vendor': './src/vendor.ts',
         'app': './src/main.ts',
-        'css': './src/styles/main.less'
+        'materialize': './src/styles/materialize.scss',
+        'app_css': './src/styles/main.scss'
     },
 
     resolve: {
@@ -36,14 +37,14 @@ module.exports = {
               loader: 'file?name=assets/[name].[hash].[ext]'
           },
           {
-              test: /\.less$/,
+              test: /\.scss/,
               exclude: helpers.root('src', 'app'),
-              loader: ExtractTextPlugin.extract('style', 'css!less?sourceMap')
+              loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')
           },
           {
-              test: /\.less$/,
+              test: /\.scss$/,
               include: helpers.root('src', 'app'),
-              loader: 'raw!less'
+              loader: 'raw!sass'
           }
         ]
     },
@@ -54,7 +55,8 @@ module.exports = {
       }),
 
       new HtmlWebpackPlugin({
-          template: 'src/index.html'
+          template: 'src/index.html',
+          extraFiles: ['libs/materialize.js']
       })
     ]
 };

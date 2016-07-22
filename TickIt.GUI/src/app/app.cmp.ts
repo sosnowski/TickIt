@@ -3,6 +3,6 @@
 @Component({
     selector: 'my-app',
     templateUrl: './app.cmp.html',
-    styleUrls: ['./app.cmp.less']
+    styleUrls: ['./app.cmp.scss']
 })
 export class AppComponent { }
