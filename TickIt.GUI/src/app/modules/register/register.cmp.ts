@@ -1,28 +1,27 @@
 ﻿import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
-class RegisterModel {
-    public name: string;
-    public email: string;
-    public password: string;
-}
+import { iRegisterData } from './register_data.i';
+import { RegisterService } from './register.srv';
 
 @Component({
     selector: 'ti-register',
     templateUrl: './register.cmp.html',
-    directives: [NgForm]
+    directives: [NgForm],
+    providers: [RegisterService]
     //styleUrls: ['./login.cmp.scss'],
 })
 
 export class RegisterComponent {
-    record: RegisterModel;
+    record: iRegisterData;
 
-    constructor() {
-        this.record = new RegisterModel();
+    constructor(public service: RegisterService) {
+        this.record = { name: '', email: '', password: '' };
     }
 
     onSubmit() {
+        console.log('Sumit!')
         console.log(this.record);
+        this.service.register(this.record).subscribe((user) => { console.log(user); }, (err) => { console.log(err); });
     }
     
 }

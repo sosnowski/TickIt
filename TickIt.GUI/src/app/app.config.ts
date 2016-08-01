@@ -2,5 +2,5 @@
 
 @Injectable()
 export class AppConfig {
-    httpApiUrl: string = 'http://localhost:2342';
+    httpApiUrl: string = 'http://localhost:48213/';
 }

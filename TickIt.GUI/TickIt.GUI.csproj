@@ -63,8 +63,11 @@
     <TypeScriptCompile Include="src\app\app.cmp.ts" />
     <TypeScriptCompile Include="src\app\app.routes.ts" />
     <TypeScriptCompile Include="src\app\app.config.ts" />
+    <TypeScriptCompile Include="src\app\common\data\user_data.i.ts" />
     <TypeScriptCompile Include="src\app\modules\login\login.cmp.ts" />
+    <TypeScriptCompile Include="src\app\modules\register\register_data.i.ts" />
     <TypeScriptCompile Include="src\app\modules\register\register.cmp.ts" />
+    <TypeScriptCompile Include="src\app\modules\register\register.srv.ts" />
     <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\vendor.ts" />
