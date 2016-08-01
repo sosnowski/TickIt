@@ -29,6 +29,7 @@
     <Content Include="config\webpack.dev.js" />
     <Content Include="config\webpack.test.js" />
     <Content Include="libs\materialize.js" />
+    <Content Include="src\app\modules\register\register.cmp.html" />
     <Content Include="src\index.html" />
     <Content Include="karma.conf.js" />
     <Content Include="fonts\Roboto-Bold.eot" />
@@ -53,15 +54,17 @@
     <Content Include="fonts\Roboto-Thin.woff2" />
     <None Include="src\app\app.cmp.scss" />
     <Content Include="src\app\app.cmp.html" />
-    <Content Include="src\login\login.cmp.html" />
+    <Content Include="src\app\modules\login\login.cmp.html" />
     <Content Include="web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="src\app\app.cmp.ts" />
-    <TypeScriptCompile Include="src\app.routes.ts" />
-    <TypeScriptCompile Include="src\login\login.cmp.ts" />
+    <TypeScriptCompile Include="src\app\app.routes.ts" />
+    <TypeScriptCompile Include="src\app\app.config.ts" />
+    <TypeScriptCompile Include="src\app\modules\login\login.cmp.ts" />
+    <TypeScriptCompile Include="src\app\modules\register\register.cmp.ts" />
     <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\vendor.ts" />
@@ -125,7 +128,9 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\app\common\services\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

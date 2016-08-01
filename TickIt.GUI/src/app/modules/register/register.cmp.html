@@ -1,0 +1,28 @@
+﻿<div class="login">
+    <div class="card">
+        <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+            <div class="card-content">
+                <header class="card-title">Register</header>
+
+                <div class="input-field">
+                    <input id="name" type="text" class="validate" required name="name" [(ngModel)]="record.name" />
+                    <label for="name" class="active">Name</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="email" type="text" class="validate" required name="email" [(ngModel)]="record.email" />
+                    <label for="email" class="active">E-mail</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="password" type="text" class="validate" required name="password" [(ngModel)]="record.password" />
+                    <label for="password" class="active">Password</label>
+                </div>
+
+            </div>
+            <div class="card-action">
+                <button class="btn waves-effect waves-light" type="submit" [disabled]="!registerForm.form.valid">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
