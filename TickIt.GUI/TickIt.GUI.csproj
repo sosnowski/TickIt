@@ -22,7 +22,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.css" />
     <Content Include="config\helpers.js" />
     <Content Include="config\karma.conf.js" />
     <Content Include="config\webpack.common.js" />
@@ -55,11 +54,11 @@
     <None Include="src\app\app.cmp.scss" />
     <Content Include="src\app\app.cmp.html" />
     <Content Include="src\app\modules\login\login.cmp.html" />
+    <Content Include="src\login.html" />
     <Content Include="web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="src\app\app.cmp.ts" />
     <TypeScriptCompile Include="src\app\app.routes.ts" />
     <TypeScriptCompile Include="src\app\app.config.ts" />
@@ -68,6 +67,7 @@
     <TypeScriptCompile Include="src\app\modules\register\register_data.i.ts" />
     <TypeScriptCompile Include="src\app\modules\register\register.cmp.ts" />
     <TypeScriptCompile Include="src\app\modules\register\register.srv.ts" />
+    <TypeScriptCompile Include="src\login.ts" />
     <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\vendor.ts" />
@@ -146,7 +146,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64134</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

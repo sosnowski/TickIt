@@ -1,4 +1,5 @@
-﻿
+﻿import './polyfills';
+
 import 'jquery';
 
 // Angular 2

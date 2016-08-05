@@ -5,11 +5,12 @@ var helpers = require('./helpers');
 
 module.exports = {
     entry: {
-        'polyfills': './src/polyfills.ts',
         'vendor': './src/vendor.ts',
         'app': './src/main.ts',
+        'login': './src/login.ts',
         'materialize': './src/styles/materialize.scss',
-        'app_css': './src/styles/main.scss'
+        'app_css': './src/styles/main.scss',
+        'login_css': './src/styles/login.scss'
     },
 
     resolve: {
@@ -50,13 +51,21 @@ module.exports = {
     },
 
     plugins: [
-      new webpack.optimize.CommonsChunkPlugin({
-          name: ['app', 'vendor', 'polyfills']
-      }),
+      new webpack.optimize.CommonsChunkPlugin('shared.js'),
 
       new HtmlWebpackPlugin({
           template: 'src/index.html',
-          extraFiles: ['libs/materialize.js']
+          filename: 'index.html',
+          extraFiles: ['libs/materialize.js'],
+          chunks: ['shared.js', 'vendor', 'app', 'materialize', 'app_css'],
+          chunksSortMode: 'auto'
+      }),
+      new HtmlWebpackPlugin({
+          template: 'src/login.html',
+          filename: 'login.html',
+          extraFiles: ['libs/materialize.js'],
+          chunks: ['shared.js', 'login', 'materialize', 'login_css'],
+          chunksSortMode: 'auto'
       })
     ]
 };

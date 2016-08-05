@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <title>Angular With Webpack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="login">
+        <div class="card">
+            <div class="card-content">
+                <header class="card-title">Login</header>
+                <form>
+                    <div class="input-field">
+                        <input id="login" type="text" class="validate" />
+                        <label for="login" class="active">E-mail</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input id="password" type="text" class="validate" />
+                        <label for="password" class="active">Password</label>
+                    </div>
+                </form>
+            </div>
+            <div class="card-action">
+                <a [routerLink]="['/register']">Register</a>
+                <button class="btn waves-effect waves-light" type="submit">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
