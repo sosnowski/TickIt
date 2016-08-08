@@ -8,7 +8,7 @@ open System.Web.Http
 open TickIt.Data;
 
 /// Retrieves values.
-[<RoutePrefix("api/user/{userId}/")>]
+[<RoutePrefix("api/user/{userId}")>]
 type CategoriesController() =
     inherit ApiController()
 

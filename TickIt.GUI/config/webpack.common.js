@@ -8,7 +8,6 @@ module.exports = {
         'vendor': './src/vendor.ts',
         'app': './src/main.ts',
         'login': './src/login.ts',
-        'materialize': './src/styles/materialize.scss',
         'app_css': './src/styles/main.scss',
         'login_css': './src/styles/login.scss'
     },
@@ -57,14 +56,14 @@ module.exports = {
           template: 'src/index.html',
           filename: 'index.html',
           extraFiles: ['libs/materialize.js'],
-          chunks: ['shared.js', 'vendor', 'app', 'materialize', 'app_css'],
+          chunks: ['shared.js', 'vendor', 'app', 'app_css'],
           chunksSortMode: 'auto'
       }),
       new HtmlWebpackPlugin({
           template: 'src/login.html',
           filename: 'login.html',
           extraFiles: ['libs/materialize.js'],
-          chunks: ['shared.js', 'login', 'materialize', 'login_css'],
+          chunks: ['shared.js', 'login', 'login_css'],
           chunksSortMode: 'auto'
       })
     ]

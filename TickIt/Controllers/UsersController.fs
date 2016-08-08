@@ -5,6 +5,7 @@ open System.Collections.Generic
 open System.Linq
 open System.Net.Http
 open System.Web.Http
+open System.Web.Http.Cors
 open TickIt.Data;
 
 type LoginData = { email: string; password: string; }
@@ -17,13 +18,15 @@ type UsersController() =
     /// Gets one user data
     [<Route("api/users/{id}")>]
     member x.Get(id:int) = 
-        failwith "Not implemented"
+        x.Ok("User data")
 
     //login user
+    
     [<Route("api/users/login")>]
     [<HttpPost>]
-    member x.Login([<FromBody>] loginData:LoginData) =
-        let user = Users.getByLoginData loginData.email (Auth.hashPassword loginData.password loginData.email)
+    member x.Login(loginData:LoginData) =
+        let hash = Auth.hashPassword loginData.password loginData.email
+        let user = Users.getByLoginData loginData.email hash
         match user with
         | Some u -> x.Ok(u)
         | None -> raise (new HttpResponseException(System.Net.HttpStatusCode.Unauthorized))

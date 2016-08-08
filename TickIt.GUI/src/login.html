@@ -9,24 +9,26 @@
 <body>
     <div class="login">
         <div class="card">
-            <div class="card-content">
-                <header class="card-title">Login</header>
-                <form>
+            <form>
+                <div class="card-content">
+                    <header class="card-title">Login</header>
+
                     <div class="input-field">
-                        <input id="login" type="text" class="validate" />
-                        <label for="login" class="active">E-mail</label>
+                        <input id="email" type="email" class="validate" name="email" required/>
+                        <label for="email" class="active">E-mail</label>
                     </div>
 
                     <div class="input-field">
-                        <input id="password" type="text" class="validate" />
+                        <input id="password" type="password" class="validate" minlength="8" name="password" required/>
                         <label for="password" class="active">Password</label>
                     </div>
-                </form>
-            </div>
-            <div class="card-action">
-                <a [routerLink]="['/register']">Register</a>
-                <button class="btn waves-effect waves-light" type="submit">Login</button>
-            </div>
+
+                </div>
+                <div class="card-action">
+                    <a href="">Register</a>
+                    <button class="btn waves-effect waves-light" type="submit">Login</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

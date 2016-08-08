@@ -14,6 +14,10 @@ type Global() =
     inherit System.Web.HttpApplication() 
 
     static member RegisterWebApi(config: HttpConfiguration) =
+
+        let cors = new Cors.EnableCorsAttribute("http://localhost:8080", "content-Type, accept, origin, X-Requested-With, Authorization, name", "*");
+        config.EnableCors(cors);
+
         // Configure routing
         config.MapHttpAttributeRoutes()
         config.Routes.MapHttpRoute(

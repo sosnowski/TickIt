@@ -119,6 +119,7 @@
     <Content Include="src\styles\components\forms\_range.scss" />
     <Content Include="src\styles\components\forms\_select.scss" />
     <Content Include="src\styles\components\forms\_switches.scss" />
+    <Content Include="src\styles\login.scss" />
     <None Include="src\styles\main.scss" />
     <Content Include="src\styles\materialize.scss" />
     <Content Include="typings\globals\core-js\typings.json" />
