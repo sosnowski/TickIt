@@ -8,10 +8,10 @@ let getFormData = (serializedData: Array<any>) => {
     return res;
 };
 
-let sendLogin = (loginData: any) => {
+let sendData = (userData: any) => {
     return $.post({
-        url: 'http://localhost:48213/api/users/login',
-        data: loginData,
+        url: 'http://localhost:48213/api/users',
+        data: userData,
         contentType: 'application/json'
     });
 };
@@ -22,7 +22,7 @@ $(document).ready(() => {
     form.on('submit', (event) => {
         event.preventDefault();
         let data = JSON.stringify(getFormData(form.serializeArray()));
-        sendLogin(data).done((...args:Array<any>) => {
+        sendData(data).done((...args: Array<any>) => {
             console.log(args);
         }).fail((...args: Array<any>) => {
             console.log(args);

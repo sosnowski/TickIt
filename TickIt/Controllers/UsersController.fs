@@ -26,7 +26,7 @@ type UsersController() =
     [<HttpPost>]
     member x.Login(loginData:LoginData) =
         let hash = Auth.hashPassword loginData.password loginData.email
-        let user = Users.getByLoginData loginData.email hash
+        let user = Users.getByLoginAndPass loginData.email hash
         match user with
         | Some u -> x.Ok(u)
         | None -> raise (new HttpResponseException(System.Net.HttpStatusCode.Unauthorized))
@@ -34,6 +34,12 @@ type UsersController() =
     //register user
     [<Route("api/users")>]
     member x.Post([<FromBody>] userData:Users.UserRegister) = 
-        let data = {userData with password = (Auth.hashPassword userData.password userData.email) }
-        let record = Users.registerUser data
-        x.Created("", record)
+        let hashedPassword = Auth.hashPassword userData.password userData.email
+        let existingUser = Users.getByLogin userData.email
+        match existingUser with
+        | Some u -> x.Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, "There is already a user with such login")
+        | None ->
+            let data = {userData with password = hashedPassword }
+            let record = Users.registerUser data
+            x.Request.CreateResponse(System.Net.HttpStatusCode.Created, record)
+        

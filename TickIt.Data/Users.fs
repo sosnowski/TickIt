@@ -44,7 +44,20 @@ module Users =
         }
         queryData |> rowToUser
 
-    let getByLoginData email pass =
+    let getByLogin email =
+        let db = Db.getDbContext()
+        let queryData = query {
+            for userRow in db.Users do
+            where (userRow.Email = email)
+            select userRow
+            exactlyOneOrDefault
+        }
+        if queryData <> null then
+            Some (rowToUser queryData)
+        else
+            None
+
+    let getByLoginAndPass email pass =
         let db = Db.getDbContext()
         let queryData = query {
             for userRow in db.Users do
@@ -59,7 +72,7 @@ module Users =
 
     let registerUser userData =
         let db = Db.getDbContext()
-        let record = new Db.dbSchema.ServiceTypes.Users( Name = userData.name, Email = userData.email, Password = userData.password )
+        let record = new Db.dbSchema.ServiceTypes.Users( Name = userData.name, Email = userData.email, Password = userData.password, DateCreated = DateTime.Now, DateUpdated = DateTime.Now )
         db.Users.InsertOnSubmit(record)
         try
             db.DataContext.SubmitChanges()

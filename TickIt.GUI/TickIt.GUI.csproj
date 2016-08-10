@@ -55,6 +55,7 @@
     <Content Include="src\app\app.cmp.html" />
     <Content Include="src\app\modules\login\login.cmp.html" />
     <Content Include="src\login.html" />
+    <Content Include="src\register.html" />
     <Content Include="web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
@@ -70,6 +71,7 @@
     <TypeScriptCompile Include="src\login.ts" />
     <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\register.ts" />
     <TypeScriptCompile Include="src\vendor.ts" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />

@@ -11,22 +11,27 @@
         <div class="card">
             <form>
                 <div class="card-content">
-                    <header class="card-title">Login</header>
+                    <header class="card-title">Register</header>
 
                     <div class="input-field">
-                        <input id="email" type="email" class="validate" name="email" required/>
+                        <input id="name" type="text" class="validate" name="name" required />
+                        <label for="name" class="active">Name</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input id="email" type="email" class="validate" name="email" required />
                         <label for="email" class="active">E-mail</label>
                     </div>
 
                     <div class="input-field">
-                        <input id="password" type="password" class="validate" minlength="8" name="password" required/>
+                        <input id="password" type="password" class="validate" minlength="8" name="password" required />
                         <label for="password" class="active">Password</label>
                     </div>
 
                 </div>
                 <div class="card-action">
-                    <a href="/register.html">Register</a>
-                    <button class="btn waves-effect waves-light" type="submit">Login</button>
+                    <a href="/login.html">Login</a>
+                    <button class="btn waves-effect waves-light" type="submit">Register</button>
                 </div>
             </form>
         </div>
